@@ -22,8 +22,8 @@ class _GridBoxState extends State<GridBox> {
         child: Container(
           padding: const EdgeInsets.all(5),
           color: Colors.orange,
-          height:  MediaQuery.of(context).size.height/1.5,
-          width: MediaQuery.of(context).size.width/1,
+          height: height/1.5,
+          width: width/1,
           child: GridView.count(
             crossAxisCount: gridCount,
             mainAxisSpacing: 8,
