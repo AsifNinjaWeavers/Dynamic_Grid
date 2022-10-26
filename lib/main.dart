@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test1/boxview.dart';
+import 'package:test1/views/boxview.dart';
 
 void main() {
   runApp(const MyApp());

@@ -9,49 +9,52 @@ class GridBox extends StatefulWidget {
 }
 
 class _GridBoxState extends State<GridBox> {
-  int counta =2;
+  int gridCount =2;
 
                   
   @override
   Widget build(BuildContext context) {
+    double height=MediaQuery.of(context).size.height;
+    double width=MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
         child: Container(
           padding: const EdgeInsets.all(5),
           color: Colors.orange,
-           height:  MediaQuery.of(context).size.height/1.5,
-                      width: MediaQuery.of(context).size.width/1,
+          height:  MediaQuery.of(context).size.height/1.5,
+          width: MediaQuery.of(context).size.width/1,
           child: GridView.count(
-            crossAxisCount: counta,
+            crossAxisCount: gridCount,
             mainAxisSpacing: 8,
             crossAxisSpacing: 8,
-            children: moregrid(height: MediaQuery.of(context).size.height/40*counta,width:MediaQuery.of(context).size.width/40*counta,count:counta*counta),
+            children: allListGrid(
+              height:height /40*gridCount,
+              width:width/40*gridCount,
+              count:gridCount*gridCount
+              ),
           )
          
         ),
-    ));
+    ),);
   }
  
-  List<Widget> moregrid({required double height,required double width,required int count})
+  List<GestureDetector> allListGrid({required double height,required double width,required int count})
   {
-    Widget a= GestureDetector(
+    GestureDetector a= GestureDetector(
       onTap: ()=>setState(() {
-       counta=counta+1;
-        debugPrint(counta.toString());
+       gridCount=gridCount+1;
       }),
        child: Container(
                      height: height,
                      width: width,
                         color: Colors.black,),
      );
-     List<Widget>te=[
-      ];
+     List<GestureDetector>allListGrid=[];
      for(int i=0;i<count;i++)
      {
-      te.add(a);
+      allListGrid.add(a);
      }
-          return te;
-    
+    return allListGrid;
   }
 }
